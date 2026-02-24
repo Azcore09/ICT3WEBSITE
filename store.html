@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pickup Coffee</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+
+        <div id="checkoutPopup" class="popup-overlay" style="display:none;">
+            <div class="popup-box">
+                <h2>✅ Order Confirmed!</h2>
+                <p>Thank you for your order.</p>
+                <hr>
+                <div id="popupCartItems"></div>
+                <hr>
+                <h3 id="popupTotal"></h3>
+                <button class="popup-close-btn" onclick="closePopup()">CLOSE</button>
+            </div>
+        </div>
+
+    <body>
+        <header class="navbar">
+        <div class="nav-inner">
+            <div class="logo"><a href="home.html">PICKUP COFFEE</a></div>
+
+            <nav class="nav-links">
+            <a href="aboutus.html">ABOUT US</a>
+            <a href="store.html">OUR MENU</a>
+            <a href="home.html#stat1">PICKUP APP</a>
+            <a href="home.html#news1">PICKUP NEWS</a>
+            </nav>
+        </div>
+        </header>
+
+        <div class="promo-bar">
+        <marquee scrollamount="10">
+            PREMIUM ESPRESSO IN EVERY CUP • PREMIUM ESPRESSO IN EVERY CUP • PREMIUM ESPRESSO IN EVERY CUP •
+        </marquee>
+        </div>
+        <br><br>
+
+        <h1 style="color: #a9c27a; text-align: center;">OUR BEST SELLERS!</h1>
+
+        <div class="products">
+            <div class="product">
+                <img src="mocha.png" alt="WHITE MOCHA LATTE">
+                <h3>WHITE <br>MOCHA LATTE</h3><br>
+                <p>89 PHP</p><br>
+                <button class="addbutton" onclick="addToCart('mocha')">ADD TO CART</button>
+            </div>
+            <br><br><br>
+            <div class="product">
+                <img src="caramel-machiatto.png" alt="CARAMEL MACHIATTO">
+                <h3>CARAMEL <br>MACHIATTO</h3><br>
+                <p>89 PHP</p><br>
+                <button class="addbutton" onclick="addToCart('caramel')">ADD TO CART</button>
+            </div>
+            <br><br><br>
+            <div class="product">
+                <img src="pickup-creme.png" alt="PICKUP CREME">
+                <h3>PICKUP <br>CREME</h3><br>
+                <p>95 PHP</p><br>
+                <button class="addbutton" onclick="addToCart('pickup')">ADD TO CART</button>
+            </div>
+            <br><br><br>
+            <div class="product">
+                <img src="kastila.png" alt="KASTILA">
+                <h3>KAPE <br>KASTILA</h3><br>
+                <p>75 PHP</p><br>
+                <button class="addbutton" onclick="addToCart('kastila')">ADD TO CART</button>
+            </div>
+        </div>
+        <br><br><br><br><br><br>   
+
+        <h1 style="color: #a9c27a; text-align: center;">ESPRESSO-BASED</h1>
+
+        <div class="products">
+            <div class="product">
+                <img src="espresso.png" alt="ESPRESSO">
+                <h3>ESPRESSO</h3><br>
+                <p>25 PHP</p><br>
+                <button class="addbutton" onclick="addToCart('espresso')">ADD TO CART</button>
+            </div>
+            <br><br><br>
+            <div class="product">
+                <img src="americano.png" alt="AMERICANO">
+                <h3>AMERICANO</h3><br>
+                <p>50 PHP</p><br>
+                <button class="addbutton" onclick="addToCart('americano')">ADD TO CART</button>
+            </div>
+            <br><br><br>
+            <div class="product">
+                <img src="latte2.png" alt="LATTE">
+                <h3>LATTE</h3><br>
+                <p>75 PHP</p><br>
+                <button class="addbutton" onclick="addToCart('latte')">ADD TO CART</button>
+            </div>
+            <br><br><br>
+            <div class="product">
+                <img src="cappuccino.png" alt="CAPPUCCINO">
+                <h3>CAPPUCCINO</h3><br>
+                <p>70 PHP</p><br>
+                <button class="addbutton" onclick="addToCart('cappuccino')">ADD TO CART</button>
+            </div>
+        </div>
+        <br><br><br><br><br><br>
+
+
+        <h1 style="color: #a9c27a; text-align: center;">FRUIT TEA</h1>
+
+        <div class="products">
+            <div class="product">
+                <img src="peachy.png" alt="PEACHY ICED TEA">
+                <h3>PEACHY <br>ICED TEA</h3><br>
+                <p>75 PHP</p><br>
+                <button class="addbutton" onclick="addToCart('peach')">ADD TO CART</button>
+            </div>
+            <br><br><br>
+            <div class="product">
+                <img src="lychee.png" alt="LYCHEE ICED TEA">
+                <h3>LYCHEE <br>ICED TEA</h3><br>
+                <p>70 PHP</p><br>
+                <button class="addbutton" onclick="addToCart('lychee')">ADD TO CART</button>
+            </div>
+            <br><br><br>
+            <div class="product">
+                <img src="apple.png" alt="APPLE ICED TEA">
+                <h3>APPLE <br>ICED TEA</h3><br>
+                <p>65 PHP</p><br>
+                <button class="addbutton" onclick="addToCart('apple')">ADD TO CART</button>
+            </div>
+            <br><br><br>
+            <div class="product">
+                <img src="thaiger.png" alt="THAIGER ICED TEA">
+                <h3>THAIGER <br>ICED TEA</h3><br>
+                <p>75 PHP</p><br>
+                <button class="addbutton" onclick="addToCart('thaiger')">ADD TO CART</button>
+            </div>
+        </div>
+        <br><br><br><br><br><br>
+
+
+        <h1 style="color: #a9c27a; text-align: center;">PICKUP BITES</h1>
+
+        <div class="products">
+            <div class="product">
+                <img src="croissant.png" alt="CROISSANT">
+                <h3>CLASSIC <br>CROISSANT</h3><br>
+                <p>80 PHP</p><br>
+                <button class="addbutton" onclick="addToCart('croissant')">ADD TO CART</button>
+            </div>
+            <br><br><br>
+            <div class="product">
+                <img src="chocolate-croissant.png" alt="CHOCOLATE CROISSANT">
+                <h3>CHOCOLATE <br>CROISSANT</h3><br>
+                <p>90 PHP</p><br>
+                <button class="addbutton" onclick="addToCart('chococroissant')">ADD TO CART</button>
+            </div>
+            <br><br><br>
+            <div class="product">
+                <img src="cookie.png" alt="COOKIE">
+                <h3>CLASSIC CHOCO <br>COOKIE</h3><br>
+                <p>109 PHP</p><br>
+                <button class="addbutton" onclick="addToCart('cookie')">ADD TO CART</button>
+            </div>
+            <br><br><br>
+            <div class="product">
+                <img src="sausage-bun.png" alt="SAUSAGE BUN">
+                <h3>SAUSAGE EGG<br>BUN</h3><br>
+                <p>89 PHP</p><br>
+                <button class="addbutton" onclick="addToCart('eggbun')">ADD TO CART</button>
+            </div>
+            </div>
+            <br><br>
+        </div>
+            <div class="cart-section">
+            <br><br>
+            <div class="cart-total">
+                <h1>YOUR TOTAL:</h1>
+                <h2 id="totalAmount">0 PHP</h2>
+            <br><br>
+            <div class="my-cart">
+                    <h1>MY CART</h1>
+                <div id="cartItems" class="cart-items-list">
+                    <p class="empty-cart-msg">Your cart is empty.</p>
+                </div>
+                <br><br>
+                <div>
+                <button class="clearbtn" onclick="clearCart()">CLEAR CART</button>
+                <button class="checkoutbtn" onclick="checkout()">CHECK OUT</button>
+                </div>
+            </div>
+    <br><br>
+</div>
+        </div>
+
+
+       
+         
+
+
+        <br><br><br><br><br><br>
+
+        <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-left">
+            <h2 class="footer-logo">
+                PICKUP<br>COFFEE
+            </h2>
+
+            <div class="socials">
+               <div class="socials">
+                    <a href="https://www.facebook.com/pickupcoffeeph" target="_blank">F</a>
+                    <a href="https://www.instagram.com/pickupcoffeeph/" target="_blank">IG</a>
+                    <a href="https://www.tiktok.com/@pickupcoffee%20" target="_blank">T</a>
+                    <a href="https://x.com/pickupcoffeeph" target="_blank">X</a>
+                </div>
+            </div>
+
+            <p class="download-text">DOWNLOAD THE PICKUP APP</p>
+
+            <div class="store-buttons">
+                <div class="store-btn">App Store</div>
+                <div class="store-btn">Google Play</div>
+            </div>
+            </div>
+
+
+            <div class="footer-right">
+                  <a href="#nav1">BACK TO TOP</a>
+                  <a href="aboutus.html">ABOUT US</a>
+                  <a href="location.html">OUR STORES</a>
+                  <a href="store.html">ORDER NOW</a>
+            </div>
+
+        </div>
+</footer>
+
+
+    <script src="script.js"></script>
+    </body>
+</html>
