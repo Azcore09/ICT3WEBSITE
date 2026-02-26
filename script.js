@@ -102,13 +102,31 @@ function updateCartDisplay() {
     });
 }
 
+function calculateChange() {
+    const payment = parseFloat(document.getElementById("paymentInput").value);
+    const changeDisplay = document.getElementById("changeDisplay");
+
+    let total = 0;
+    cart.forEach(item => total += item.price);
+
+    if (isNaN(payment) || payment === 0) {
+        changeDisplay.innerHTML = "";
+    } else if (payment < total) {
+        const short = total - payment;
+        changeDisplay.innerHTML = `<span style="color: #d80000;">⚠️ Short by ${short} PHP</span>`;
+    } else {
+        const change = payment - total;
+        changeDisplay.innerHTML = `<span style="color: #4a7c3f;">✅ Change: ${change} PHP</span>`;
+    }
+}
+
+// Update checkout() to reset the payment field when opened
 function checkout() {
     if (cart.length === 0) {
         alert("Your cart is empty!");
         return;
     }
 
-    // item list 
     const popupItems = document.getElementById("popupCartItems");
     popupItems.innerHTML = "";
     cart.forEach(item => {
@@ -118,18 +136,21 @@ function checkout() {
         popupItems.appendChild(row);
     });
 
-    // total
     let total = 0;
     cart.forEach(item => total += item.price);
     document.getElementById("popupTotal").innerHTML = "TOTAL: " + total + " PHP";
 
-    // popup
+    // Reset payment fields
+    document.getElementById("paymentInput").value = "";
+    document.getElementById("changeDisplay").innerHTML = "";
+
     document.getElementById("checkoutPopup").style.display = "flex";
 }
 
-
+// Update closePopup() to also clear cart after confirming
 function closePopup() {
     document.getElementById("checkoutPopup").style.display = "none";
+    clearCart();
 }
 
 function clearCart() {
