@@ -102,58 +102,38 @@ function updateCartDisplay() {
     });
 }
 
-function calculateChange() {
-    const payment = parseFloat(document.getElementById("paymentInput").value);
-    const changeDisplay = document.getElementById("changeDisplay");
-
-    let total = 0;
-    cart.forEach(item => total += item.price);
-
-    if (isNaN(payment) || payment === 0) {
-        changeDisplay.innerHTML = "";
-    } else if (payment < total) {
-        const short = total - payment;
-        changeDisplay.innerHTML = `<span style="color: #d80000;">⚠️ Short by ${short} PHP</span>`;
-    } else {
-        const change = payment - total;
-        changeDisplay.innerHTML = `<span style="color: #4a7c3f;">✅ Change: ${change} PHP</span>`;
-    }
-}
-
-// Update checkout() to reset the payment field when opened
-function checkout() {
-    if (cart.length === 0) {
-        alert("Your cart is empty!");
-        return;
-    }
-
-    const popupItems = document.getElementById("popupCartItems");
-    popupItems.innerHTML = "";
-    cart.forEach(item => {
-        const row = document.createElement("div");
-        row.classList.add("popup-item-row");
-        row.innerHTML = `<span>${item.name}</span><span>${item.price} PHP</span>`;
-        popupItems.appendChild(row);
-    });
-
-    let total = 0;
-    cart.forEach(item => total += item.price);
-    document.getElementById("popupTotal").innerHTML = "TOTAL: " + total + " PHP";
-
-    // Reset payment fields
-    document.getElementById("paymentInput").value = "";
-    document.getElementById("changeDisplay").innerHTML = "";
-
-    document.getElementById("checkoutPopup").style.display = "flex";
-}
-
-// Update closePopup() to also clear cart after confirming
-function closePopup() {
-    document.getElementById("checkoutPopup").style.display = "none";
-    clearCart();
-}
-
 function clearCart() {
     cart = [];
     updateCartDisplay();
 }
+
+function checkout() {
+    if (cart.length === 0) {
+        alert("Your cart is empty. Please add items to your cart before checking out.");
+        return;
+    }
+
+    let change = prompt("How much would you like to pay?", "00");
+
+    if (change === null) return; // User cancelled
+
+    let total = 0;
+    for (let i = 0; i < cart.length; i++) {
+        total += cart[i].price;
+    }
+
+    let payment = parseFloat(change);
+
+    if (isNaN(payment) || payment < total) {
+        alert("Invalid payment. Please enter an amount equal to or greater than the total price.");
+        return;
+    }
+
+    let value = payment - total;
+    document.getElementById("change1").innerHTML = 
+    
+    "CHANGE:" + "<br>" + value + " PHP"; "<br>" + "<br>" +
+    alert("Your change is: " + value + " PHP" + "\n" +
+        "Payment successful! thank you for your purchase.");
+}
+    
