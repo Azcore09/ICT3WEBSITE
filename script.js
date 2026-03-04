@@ -105,7 +105,7 @@ function updateCartDisplay() {
 function clearCart() {
     cart = [];
     updateCartDisplay();
-     document.getElementById("change1").innerHTML = ""
+    document.getElementById("change1").innerHTML = ""
 }
 
 function checkout() {
@@ -138,4 +138,3 @@ function checkout() {
         "Payment successful! thank you for your purchase.");
 }
     
-
